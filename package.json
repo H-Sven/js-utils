@@ -1,8 +1,8 @@
 {
   "name": "@sven0706/js-utils",
   "version": "1.0.2",
-  "description": "封装的js工具函数",
-  "main": "index.js",
+  "description": "封装的js工具函数, 支持ts类型声明",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
