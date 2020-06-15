@@ -1,6 +1,6 @@
 {
   "name": "@sven0706/js-utils",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "封装的js工具函数",
   "main": "index.js",
   "scripts": {

@@ -2,7 +2,7 @@
  * @Author: Siwen
  * @Date: 2020-06-15 09:52:37
  * @LastEditors: Siwen
- * @LastEditTime: 2020-06-15 14:41:24
+ * @LastEditTime: 2020-06-15 17:15:55
  * @Description: 模块化导出
  */
 let environmentInfo = {
@@ -523,10 +523,6 @@ export const maxSort = (prop) => {
     }
   }
 }
-/**
- * 数组对象排序 小到大 (结合sort方法使用)
- * @param {string } prop 排序条件
- */
 /**
  * 数组对象排序 小到大
  * @method minSort
