@@ -4,12 +4,12 @@
 ### 使用步骤
 ```
 //安装
-npm install js-utils -S
+npm install @sven0706/js-utils -S
 
 //引入
-import * as utils from 'js-utils'
+import * as utils from '@sven0706/js-utils'
 or
-import { comdify } from 'js-utils'
+import { comdify } from '@sven0706/js-utils'
 
 //使用
 utils.comdify(123456) // 123,456
