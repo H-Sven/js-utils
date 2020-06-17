@@ -34,10 +34,12 @@ comdify(123456) // 123,456
 - [x] 获取字符串指定符号前后的内容: getStringSymbl
 - [x] 传入剩余秒数的倒计时: countDown
 - [x] 驼峰字符串格式化: decamelize
-- [x] 验证手机号: isPhone
-- [x] 验证邮箱: isEmail
+- [x] 验证是否手机号: isPhone
+- [x] 验证是否邮箱: isEmail
+- [x] 验证是否url地址: isUrl
+- [x] 验证是否函数: isFunction
 - [x] 8到20位密码验证（字母，数字，特殊符号任意两种组合）: isPassword
-- [x] 验证身份证号码: isIdCard
+- [x] 验证是否身份证号码: isIdCard
 - [x] 将时间戳转换成指定的日期格式: formatDate
 - [x] 将日期格式转换成时间戳: timeStamp
 - [x] 格林尼治时间字符串转日期格式: formatDateGL
@@ -53,4 +55,10 @@ comdify(123456) // 123,456
 - [x] 将base64的图片转为Blob格式: dataURLtoBlob
 - [x] 随机生成uuid: generateUUID
 - [x] 复制功能（iOS下某些版本不兼容）: Copy
+- [x] 动态引入js文件: injectScript
+- [x] 动态引入css文件: injectStyleCSS
+- [x] 获取滚动的坐标: getScrollPosition
+- [x] 滚动到顶部: scrollToTop
+- [x] 去除字符串中的空格: trim
+- [x] 字符转换: changeCase
 

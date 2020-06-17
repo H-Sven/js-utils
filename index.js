@@ -2,7 +2,7 @@
  * @Author: Siwen
  * @Date: 2020-06-15 09:52:37
  * @LastEditors: Siwen
- * @LastEditTime: 2020-06-15 17:15:55
+ * @LastEditTime: 2020-06-17 10:43:54
  * @Description: 模块化导出
  */
 let environmentInfo = {
@@ -359,6 +359,24 @@ export const isEmail = (email) => {
   return reg.test(email)
 }
 /**
+ * 验证是否url地址
+ * @method isUrl
+ * @param {string} url url地址
+ * @returns {Boolean}
+ */
+export const isUrl = (url) => {
+  return /^http[s]?:\/\/.*/.test(url)
+}
+/**
+ * 验证是否函数
+ * @method isFunction
+ * @param {Function} func 函数
+ * @returns {Boolean}
+ */
+export const isFunction = (func) => {
+  return Object.prototype.toString.call(func).slice(8, -1) === 'Function'
+}
+/**
  * 8到20位密码验证（字母，数字，特殊符号任意两种组合）
  * @method isPassword
  * @param {string} password 密码
@@ -641,4 +659,106 @@ export const Copy = (copyInfo) => {
     copyUrl.remove()
     resolve(true)
   })
+}
+/**
+ * 动态引入js文件
+ * @method injectScript
+ * @param {string} src js地址
+ */
+export const injectScript = (src) => {
+  const s = document.createElement('script')
+  s.type = 'text/javascript'
+  s.async = true
+  s.src = src
+  const t = document.getElementsByTagName('script')[0]
+  t.parentNode.insertBefore(s, t)
+}
+/**
+ * 动态引入css文件
+ * @method injectStyle
+ * @param {string} url css地址
+ */
+export const injectStyleCSS = (url) => {
+  try {
+    document.createStyleSheet(url)
+  } catch (e) {
+    var cssLink = document.createElement('link')
+    cssLink.rel = 'stylesheet'
+    cssLink.type = 'text/css'
+    cssLink.href = url
+    var head = document.getElementsByTagName('head')[0]
+    head.appendChild(cssLink)
+  }
+}
+/**
+ * 获取滚动的坐标
+ * @method getScrollPosition
+ * @param {HTMLDivElement | HTMLImageElement | HTMLCanvasElement} el 需要获取的元素
+ */
+export const getScrollPosition = (el = window) => ({
+  x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
+  y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
+})
+/**
+ * 滚动到顶部
+ * @method scrollToTop
+ */
+export const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop)
+    window.scrollTo(0, c - c / 8)
+  }
+}
+/**
+ * 去除字符串中的空格
+ * @param {string} str 待处理字符串
+ * @param {number} type 1:所有空格 2:前后空格 3:前空格 4:后空格 默认1
+ * @returns {string}
+ */
+export const trim = (str, type = 1) => {
+  switch (type) {
+    case 1:
+      return str.replace(/\s+/g, '')
+    case 2:
+      return str.replace(/(^\s*)|(\s*$)/g, '')
+    case 3:
+      return str.replace(/(^\s*)/g, '')
+    case 4:
+      return str.replace(/(\s*$)/g, '')
+    default:
+      return str
+  }
+}
+/**
+ * 字符转换
+ * @param {string} str 待处理字符串
+ * @param {number} type 1:首字母大写 2：首字母小写 3：大小写转换 4：全部大写 5：全部小写 默认4
+ * @returns {string}
+ */
+export const changeCase = (str, type = 4) => {
+  switch (type) {
+    case 1:
+      return str.replace(/\b\w+\b/g, function (word) {
+        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase()
+      })
+    case 2:
+      return str.replace(/\b\w+\b/g, function (word) {
+        return word.substring(0, 1).toLowerCase() + word.substring(1).toUpperCase()
+      })
+    case 3:
+      return str.split('').map(function (word) {
+        if (/[a-z]/.test(word)) {
+          return word.toUpperCase()
+        } else {
+          return word.toLowerCase()
+        }
+      }).join('')
+    case 4:
+      return str.toUpperCase()
+    case 5:
+      return str.toLowerCase()
+    default:
+      return str
+  }
 }

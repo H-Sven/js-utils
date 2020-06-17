@@ -2,7 +2,7 @@
  * @Author: Siwen
  * @Date: 2020-06-15 14:28:47
  * @LastEditors: Siwen
- * @LastEditTime: 2020-06-15 17:15:48
+ * @LastEditTime: 2020-06-17 11:01:42
  * @Description: ts声明文件
  */
 
@@ -138,6 +138,20 @@ export declare function isPhone(number: string | number): boolean
  */
 export declare function isEmail(email: string): boolean
 /**
+ * 验证是否url地址
+ * @method isUrl
+ * @param {string} url url地址
+ * @returns {Boolean}
+ */
+export declare function isUrl(url: string): boolean
+/**
+ * 验证是否函数
+ * @method isFunction
+ * @param {Function} func 函数
+ * @returns {Boolean}
+ */
+export declare function isFunction(func: Function): boolean
+/**
  * 8到20位密码验证（字母，数字，特殊符号任意两种组合）
  * @method isPassword
  * @param {string} password 密码
@@ -263,3 +277,43 @@ export declare function generateUUID(): string
  * @param {string | number} copyInfo 需要复制的内容
  */
 export declare function Copy(copyInfo: string | number): any
+/**
+ * 动态引入js文件
+ * @method injectScript
+ * @param {string} src js地址
+ */
+export declare function injectScript(src: string): void
+/**
+ * 动态引入css文件
+ * @method injectStyle
+ * @param {string} url css地址
+ */
+export declare function injectStyleCSS(src: string): void
+/**
+ * 获取滚动的坐标
+ * @method getScrollPosition
+ * @param {any} el 需要获取的元素
+ */
+export declare function getScrollPosition(el?: any): Object
+/**
+ * 滚动到顶部
+ * @method scrollToTop
+ * @returns {void}
+ */
+export declare function scrollToTop(): void
+/**
+ * 去除字符串中的空格
+ * @method trim
+ * @param {string} str 待处理字符串
+ * @param {number} type 1-所有空格 2-前后空格 3-前空格 4-后空格 默认1
+ * @returns {string}
+ */
+export declare function trim(str: string, type?: number): string
+/**
+ * 字符转换
+ * @method changeCase
+ * @param {string} str 待处理字符串
+ * @param {number} type 1:首字母大写 2：首字母小写 3：大小写转换 4：全部大写 5：全部小写 默认4
+ * @returns {string}
+ */
+export declare function changeCase(str: string, type?: number): string
