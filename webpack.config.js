@@ -2,7 +2,7 @@
  * @Author: Siwen
  * @Date: 2020-06-15 14:59:42
  * @LastEditors: Siwen
- * @LastEditTime: 2020-06-15 16:25:02
+ * @LastEditTime: 2020-06-18 11:37:20
  * @Description: webpack.config.js
  */
 const webpack = require('webpack')
@@ -15,8 +15,19 @@ module.exports = {
     index: './index.js'
   },
   output: {
+    library: "utils",
+    libraryTarget: "umd",
     path: path.resolve(__dirname, './dist'),
     filename: '[name].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
