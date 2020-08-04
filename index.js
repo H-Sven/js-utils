@@ -2,7 +2,7 @@
  * @Author: Siwen
  * @Date: 2020-06-15 09:52:37
  * @LastEditors: Siwen
- * @LastEditTime: 2020-06-17 10:43:54
+ * @LastEditTime: 2020-08-04 11:17:23
  * @Description: 模块化导出
  */
 let environmentInfo = {
@@ -267,18 +267,18 @@ export const encodeParams = (obj, isCode = ture) => {
 }
 /**
  * 获取字符串指定符号前后的内容
- * @method getCaption
+ * @method getStringSymbl
  * @param {string} str 字符串
  * @param {string} symbol 指定符号
- * @param {boolean} state 指定符号前:0 还是后:1 (默认1)
+ * @param {string} state 指定符号前:'0' 还是后:'1' (默认'1')
  * @returns {string}
  */
-export const getStringSymbl = (str, symbol, state = 1) => {
+export const getStringSymbl = (str, symbol, state = '1') => {
   if (str && !str.includes(symbol)) {
-    str = 'USDT'
+    str = str
   } else if (str) {
     const index = str.lastIndexOf(symbol)
-    if (!state) {
+    if (state === '0') {
       str = str.substring(0, index)
     } else {
       str = str.substring(index + 1, str.length)

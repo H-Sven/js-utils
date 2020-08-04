@@ -2,7 +2,7 @@
  * @Author: Siwen
  * @Date: 2020-06-15 14:28:47
  * @LastEditors: Siwen
- * @LastEditTime: 2020-06-17 11:01:42
+ * @LastEditTime: 2020-08-04 11:16:10
  * @Description: ts声明文件
  */
 
@@ -100,10 +100,10 @@ export declare function encodeParams(obj: Object, isCode?: boolean): string
  * @method getCaption
  * @param {string} str 字符串
  * @param {string} symbol 指定符号
- * @param {boolean} state 指定符号前:0 还是后:1 (默认1)
+ * @param {string} state 指定符号前:'0' 还是后:'1' (默认'1')
  * @returns {string}
  */
-export declare function getStringSymbl(str: string, symbol: string, state?: boolean): string
+export declare function getStringSymbl(str: string, symbol: string, state?: string): string
 /**
  * 传入剩余秒数的倒计时
  * @method countDown
