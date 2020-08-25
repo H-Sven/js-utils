@@ -180,6 +180,13 @@ export declare function formatDate(x: string | number, y: string): String
  */
 export declare function timeStamp(myDate: string): number
 /**
+ * 传入秒数，返回天、时、分、秒
+ * @method getTimesDHMS
+ * @param {string}  times 秒
+ * @returns {}
+ */
+export declare function getTimesDHMS(times: number): Object
+/**
  * 格林尼治时间字符串转日期格式
  * @method formatDateGL
  * @param {string} myTimes 格林尼治时间

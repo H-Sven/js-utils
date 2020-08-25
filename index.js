@@ -293,35 +293,13 @@ export const getStringSymbl = (str, symbol, state = '1') => {
  * @param {function} callback 回调函数
  * @returns {object} 回调函数返回值对象
  */
-export const countDown = (times,callback) => {
-  let timer = null
-  timer = setInterval(() => {
-    if(times > 0){
-      let day = Math.floor(times / (60 * 60 * 24))
-      let hour = Math.floor(times / (60 * 60)) - (day * 24)
-      let minute = Math.floor(times / 60) - (day * 24 * 60) - (hour * 60)
-      let second = Math.floor(times) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60)
-      day = `${day < 10 ? '0' : ''}${day}`
-      hour = `${hour < 10 ? '0' : ''}${hour}`
-      minute = `${minute < 10 ? '0' : ''}${minute}`
-      second = `${second < 10 ? '0' : ''}${second}`
-      let obj = {
-        day,
-        hour,
-        minute,
-        second
-      }
-      callback(obj)
-      times--
-    }else{
-      clearInterval(timer)
-      callback(false)
-    }
+export const countDown = (times, callback) => {
+  const timerId = setInterval(() => {
+    const countDown = getTimesDHMS(times)
+    callback(countDown)
+    times--
+    if (times <= 0) clearInterval(timerId)
   }, 1000)
-  if (times <= 0) {
-    clearInterval(timer);
-    callback(false)
-  }
 }
 /**
  * 驼峰字符串格式化 (默认下划线)
@@ -431,6 +409,23 @@ export const formatDate = (x, y = 'yyyy-MM-dd hh:mm:ss') => {
 export const timeStamp = (myDate) => {
   let date = new Date(myDate)
   return date.getTime()/1000
+}
+/**
+ * 传入秒数，返回天、时、分、秒
+ * @method getTimesDHMS
+ * @param {string}  times 秒
+ * @returns {}
+ */
+export const getTimesDHMS = (times) => {
+  let day = Math.floor(times / (60 * 60 * 24))
+  let hour = Math.floor(times / (60 * 60)) - (day * 24)
+  let minute = Math.floor(times / 60) - (day * 24 * 60) - (hour * 60)
+  let second = Math.floor(times) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60)
+  day = `${day < 10 ? '0' : ''}${day}`
+  hour = `${hour < 10 ? '0' : ''}${hour}`
+  minute = `${minute < 10 ? '0' : ''}${minute}`
+  second = `${second < 10 ? '0' : ''}${second}`
+  return { day, hour, minute, second }
 }
 /**
  * 格林尼治时间字符串转日期格式
